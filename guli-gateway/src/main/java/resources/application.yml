@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: baidu_route              # 每一个路由的名字，唯一即可
+          uri: https://www.baidu.com   # 匹配后提供服务的路由地址
+          predicates:                 # 断言规则
+            - Query=url,baidu         #如果url参数等于baidu 符合断言，转到uri
+
+        - id: qq_route                  # 每一个路由的名字，唯一即可
+          uri: https://www.qq.com   # 匹配后提供服务的路由地址
+          predicates: # 断言规则
+            - Query=url,qq         #如果url参数等于baidu 符合断言，转到uri
